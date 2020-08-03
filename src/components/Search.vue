@@ -1,18 +1,16 @@
 <template>
   <div class="search">
-    <form>
-      <div class="field">
-        <div class="control">
-          <input
-            class="input"
-            v-model="query"
-            type="search"
-            placeholder="Search..."
-            v-on:keyup="callParent()"
-          />
-        </div>
+    <div class="field">
+      <div class="control">
+        <input
+          class="input"
+          v-model="query"
+          type="search"
+          placeholder="Search..."
+          v-on:keyup="callParent"
+        />
       </div>
-    </form>
+    </div>
   </div>
 </template>
 
