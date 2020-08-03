@@ -2,7 +2,7 @@
   <div class="products">
     <h2 class="subtitle">Products</h2>
 
-    <Search v-on:search="filter" />
+    <Search v-on:search="(query) => (filter = query)" />
 
     <div class="columns">
       <div
@@ -33,13 +33,13 @@ export default {
   data() {
     return {
       allproducts: [],
-      products: [],
+      filter: "",
     };
   },
-  methods: {
-    filter(query) {
-      this.products = this.allproducts.filter((product) =>
-        product.name.toLowerCase().includes(query.toLowerCase())
+  computed: {
+    products() {
+      return this.allproducts.filter((product) =>
+        product.name.toLowerCase().includes(this.filter.toLowerCase())
       );
     },
   },
@@ -57,7 +57,6 @@ export default {
             description: doc.data().description,
             price: doc.data().price,
           });
-          this.products = this.allproducts;
         })
       );
   },
