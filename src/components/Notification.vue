@@ -1,5 +1,5 @@
 <template>
-  <div class="notification" v-bind:class="type" v-if="display">
+  <div class="notification" v-bind:class="type">
     <button class="delete" @click="close"></button>
     {{ message }}
   </div>
